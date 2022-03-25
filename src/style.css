@@ -24,7 +24,6 @@ body {
   font-size: 30px;
 }
 
-#day-one,
 #day-two,
 #day-three,
 #day-four,
@@ -55,7 +54,7 @@ body {
 }
 
 #weather-image {
-  margin: 40px;
+  margin: 30px;
 }
 
 #forecast,
@@ -66,7 +65,7 @@ body {
 }
 
 #weather-conditions {
-  margin: 20px;
+  margin: 10px;
   text-transform: capitalize;
 }
 #currentdate,
@@ -76,6 +75,9 @@ body {
 #day,
 #time {
   color: white;
+}
+#day {
+  margin-top: 10px;
 }
 #city-name {
   margin-top: 50px;
@@ -94,5 +96,6 @@ body {
 }
 
 #city-form {
-  margin-top: 100px;
+  margin-top: 58px;
+  margin-bottom: 25px;
 }

@@ -1,7 +1,17 @@
-let apiKey = `9bf2efd0f6df71b36df66a55219d0c2d`;
-let city = `Phuket`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayTemperature);
+let form = document.querySelector("#city-form");
+form.addEventListener("submit", handleCity);
+
+function handleCity(event) {
+  event.preventDefault();
+  let userCity = document.querySelector("#city-input");
+  searchCity(userCity.value);
+}
+
+function searchCity(city) {
+  let apiKey = `9bf2efd0f6df71b36df66a55219d0c2d`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
 function formatTime(timestamp) {
   let date = new Date(timestamp);
@@ -85,13 +95,13 @@ function displayTemperature(response) {
   let todayIcon = response.data.weather[0].icon;
   currentIcon.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${todayIcon}.png`
+    `https://openweathermap.org/img/wn/${todayIcon}@4x.png`
   );
   currentIcon.setAttribute("alt", `${weatherDescription}`);
   let now = new Date();
   if (now.getHours() >= 21 || now.getHours() < 6) {
     document.getElementById("current-card").style.backgroundImage =
-      "url(src/images/camp5.png) ";
+      "url(src/images/camp-4363073_1280.png) ";
 
     if (now.getHours() >= 19 && now.getHours() < 21) {
       document.getElementById("current-card").style.backgroundImage =
@@ -116,3 +126,5 @@ function displayTemperature(response) {
     }
   }
 }
+
+searchCity("Phuket");
