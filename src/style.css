@@ -6,33 +6,26 @@ body {
   text-align: center;
 }
 
-.h1 {
-  margin: 60px;
-  color: white;
-}
-
-.sm {
-  text-align: left;
-}
-
 .small-text {
   text-align: left;
+  margin-top: 30px;
 }
 
 .card {
   text-align: center;
 }
-
+#current-city-pin {
+  float: right;
+}
 #day-one,
 #day-two,
 #day-three,
 #day-four,
 #day-five {
   font-weight: bold;
+  margin: 20px;
 }
 
-#dayfive-temp,
-#dayfour-temp,
 #daythree-temp,
 #daytwo-temp,
 #dayone-temp {
@@ -47,9 +40,26 @@ body {
   font-weight: bold;
 }
 
-#current-body {
-  margin-top: 20px;
-  background-image: url(https://images.unsplash.com/photo-1572003818138-19cf96ee15e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c2t5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60);
+#current-card {
+  background-image: url(images/landscape2.jpg);
+}
+
+#forecast {
+  background-color: ;
+}
+
+#weather-image {
+  margin: 40px;
+}
+
+#forecast,
+#current-card {
+  margin-top: 30px;
+  border-radius: 30px;
+}
+
+#weather-conditions {
+  margin: 20px;
 }
 
 #city-name,
@@ -58,4 +68,17 @@ body {
 #day,
 #time {
   color: white;
+}
+#city-name {
+  margin-top: 50px;
+}
+#month,
+#date,
+#day,
+#time {
+  font-size: 25px;
+}
+
+.small-text {
+  padding-top: 100px;
 }
