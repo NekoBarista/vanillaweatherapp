@@ -35,14 +35,17 @@ body {
 #dayfour-temp {
   padding-bottom: 10px;
 }
+#dayfive-temp {
+  padding-bottom: 15px;
+}
+
 #daythree-temp,
 #daytwo-temp,
 #dayone-temp {
   padding-bottom: 20px;
 }
 
-#dayfive-temp,
-#dayfour-temp,
+#dayfive-temp #dayfour-temp,
 #daythree-temp,
 #daytwo-temp,
 #dayone-temp {
