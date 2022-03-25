@@ -6,6 +6,7 @@
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="src/style.css" class="style">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,13 @@
 		<div id ="time"> <span id="hours">11:</hours><span id="minutes">33am</span>
 		<div id="weather-image"> <img src="src/images/sun-white.png" alt="sun"></div>
 				
-<div><span id ="current-temp"><h2> 31°</span><span id="units">C</h2></span>
+<div>
+    
+    <span id ="current-temp"> 31°</span>
+    
+    <span id="units-celsius">C |<span id="units-farenheit"> F </span>
+
+</span>
 	<div id ="weather-conditions"> Clear </div>
 	<form>
 			<div class="form-group">
@@ -62,7 +69,7 @@
 				</div>
 			</div>
 
-<span class="small-text">  This app is open source code by <a href="https://github.com/NekoBarista/vanillaweatherapp"> Vicki Smith </a> </span>
+<span id="small-text">  This app is open source code by <a href="https://github.com/NekoBarista/vanillaweatherapp"> Vicki Smith </a> </span>
 	<script src="src/index.js">
 	</script>
 </body>
