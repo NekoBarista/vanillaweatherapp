@@ -81,4 +81,11 @@ function displayTemperature(response) {
   dayText.innerHTML = formatDay(response.data.dt * 1000);
   let monthText = document.querySelector("#currentdate");
   monthText.innerHTML = formatMonth(response.data.dt * 1000);
+  let currentIcon = document.querySelector("#weather-icon");
+  let todayIcon = response.data.weather[0].icon;
+  currentIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${todayIcon}.png`
+  );
+  currentIcon.setAttribute("alt", `${weatherDescription}`);
 }
