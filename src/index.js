@@ -13,6 +13,14 @@ function searchCity(city) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
+function searchCurrentCity(position) {
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+  let apiKey = "9bf2efd0f6df71b36df66a55219d0c2d";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
 function formatTime(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -128,3 +136,11 @@ function displayTemperature(response) {
 }
 
 searchCity("Phuket");
+
+let currentPosition = document.querySelector("#current-city-pin");
+currentPosition.addEventListener("click", currentPositionWeather);
+
+function currentPositionWeather() {
+  let currentposition =
+    navigator.geolocation.getCurrentPosition(searchCurrentCity);
+}
