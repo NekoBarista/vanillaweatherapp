@@ -69,7 +69,7 @@ body {
   margin: 20px;
   text-transform: capitalize;
 }
-
+#currentdate,
 #city-name,
 #month,
 #date,
@@ -81,6 +81,7 @@ body {
   margin-top: 50px;
   font-size: 40px;
 }
+#currentdate,
 #month,
 #date,
 #day,
