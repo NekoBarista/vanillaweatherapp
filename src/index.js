@@ -1,6 +1,13 @@
 let form = document.querySelector("#city-form");
 form.addEventListener("submit", handleCity);
 
+let currentValueCelsius = null;
+
+function currentPositionWeather() {
+  let currentposition =
+    navigator.geolocation.getCurrentPosition(searchCurrentCity);
+}
+
 function handleCity(event) {
   event.preventDefault();
   let userCity = document.querySelector("#city-input");
@@ -45,6 +52,17 @@ function formatDate(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+function displayFarenheit(event) {
+  event.preventDefault();
+  let currentTempText = document.querySelector("#current-temp");
+  let farenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  console.log(farenheitTemp);
+
+  currentTempText.innerHTML = `${farenheitTemp}°`;
+}
+
+let celsiusTemperature = null;
+
 function formatDay(timestamp) {
   let date = new Date(timestamp);
   let days = [
@@ -84,13 +102,13 @@ function formatMonth(timestamp) {
 
 function displayTemperature(response) {
   let currentTemp = document.querySelector("#current-temp");
-  let currentValue = Math.round(response.data.main.temp);
+  let currentValueCelsius = Math.round(response.data.main.temp);
+  celsiusTemperature = Math.round(response.data.main.temp);
   let cityText = document.querySelector("#city-name");
   let currentCity = response.data.name;
   let descriptor = document.querySelector("#weather-conditions");
   let weatherDescription = response.data.weather[0].description;
-  let dateText = document.querySelector("#currentdate");
-  let currentdate = (currentTemp.innerHTML = `${currentValue}°`);
+  currentTemp.innerHTML = `${currentValueCelsius}°`;
   cityText.innerHTML = `${currentCity}`;
   descriptor.innerHTML = `${weatherDescription}`;
   let timeText = document.querySelector("#hours");
@@ -116,7 +134,7 @@ function displayTemperature(response) {
         "url(src/images/night.png)";
     }
 
-    if (now.getHours() >= 6 && now.getHours() < 19 && currentValue >= 30) {
+    if (now.getHours() >= 6 && now.getHours() < 19 && currentValue >= 25) {
       document.getElementById("current-card").style.backgroundImage =
         "url(src/images/beach.png)";
       document.getElementById("hours").style.color = "black";
@@ -126,9 +144,10 @@ function displayTemperature(response) {
       document.getElementById("current-temp").style.color = "black";
       document.getElementById("units-celsius").style.color = "black";
       document.getElementById("weather-conditions").style.color = "black";
+      document.getElementById("updated").style.color = "black";
     }
 
-    if (now.getHours() >= 6 && now.getHours() < 19 && currentValue <= 30) {
+    if (now.getHours() >= 6 && now.getHours() < 19 && currentValue <= 25) {
       document.getElementById("current-card").style.backgroundImage =
         "url(src/images/landscape.png)";
     }
@@ -140,7 +159,26 @@ searchCity("Phuket");
 let currentPosition = document.querySelector("#current-city-pin");
 currentPosition.addEventListener("click", currentPositionWeather);
 
-function currentPositionWeather() {
-  let currentposition =
-    navigator.geolocation.getCurrentPosition(searchCurrentCity);
+let farenheitQuery = document.querySelector("#farenheit-link");
+farenheitQuery.addEventListener("click", displayFarenheit);
+
+function displayCelsius(event) {
+  event.preventDefault();
+  let currentTempText = document.querySelector("#current-temp");
+  currentTempText.innerHTML = `${celsiusTemperature}°`;
+  farenheitQuery.classList.remove("active");
+  celsiusQuery.classList.add("active");
+}
+
+let celsiusQuery = document.querySelector("#celsius-link");
+celsiusQuery.addEventListener("click", displayCelsius);
+
+function displayFarenheit(event) {
+  event.preventDefault();
+  let currentTempText = document.querySelector("#current-temp");
+  let farenheitTemp = (currentValueCelsius * 9) / 5 + 32;
+
+  currentTempText.innerHTML = `${farenheitTemp}°`;
+  celsiusQuery.classList.remove("active");
+  farenheitQuery.classList.add("active");
 }
