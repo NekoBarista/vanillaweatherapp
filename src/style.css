@@ -1,3 +1,61 @@
-h1 {
-  color: blue;
+body {
+  font-family: sans-serif;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.h1 {
+  margin: 60px;
+  color: white;
+}
+
+.sm {
+  text-align: left;
+}
+
+.small-text {
+  text-align: left;
+}
+
+.card {
+  text-align: center;
+}
+
+#day-one,
+#day-two,
+#day-three,
+#day-four,
+#day-five {
+  font-weight: bold;
+}
+
+#dayfive-temp,
+#dayfour-temp,
+#daythree-temp,
+#daytwo-temp,
+#dayone-temp {
+  padding-bottom: 20px;
+}
+
+#dayfive-temp,
+#dayfour-temp,
+#daythree-temp,
+#daytwo-temp,
+#dayone-temp {
+  font-weight: bold;
+}
+
+#current-body {
+  margin-top: 20px;
+  background-image: url(https://images.unsplash.com/photo-1572003818138-19cf96ee15e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c2t5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60);
+}
+
+#city-name,
+#month,
+#date,
+#day,
+#time {
+  color: white;
 }
