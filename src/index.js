@@ -55,9 +55,7 @@ function formatDate(timestamp) {
 function displayFarenheit(event) {
   event.preventDefault();
   let currentTempText = document.querySelector("#current-temp");
-  let farenheitTemp = (celsiusTemperature * 9) / 5 + 32;
-  console.log(farenheitTemp);
-
+  let farenheitTemp = (currentValueCelsius * 9) / 5 + 32;
   currentTempText.innerHTML = `${farenheitTemp}°`;
 }
 
@@ -102,7 +100,7 @@ function formatMonth(timestamp) {
 
 function displayTemperature(response) {
   let currentTemp = document.querySelector("#current-temp");
-  let currentValueCelsius = Math.round(response.data.main.temp);
+  currentValueCelsius = Math.round(response.data.main.temp);
   celsiusTemperature = Math.round(response.data.main.temp);
   let cityText = document.querySelector("#city-name");
   let currentCity = response.data.name;
