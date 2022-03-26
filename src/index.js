@@ -134,7 +134,11 @@ function displayTemperature(response) {
         "url(src/images/night.png)";
     }
 
-    if (now.getHours() >= 6 && now.getHours() < 19 && currentValue >= 25) {
+    if (
+      now.getHours() >= 6 &&
+      now.getHours() < 19 &&
+      currentValueCelsius > 25
+    ) {
       document.getElementById("current-card").style.backgroundImage =
         "url(src/images/beach.png)";
       document.getElementById("hours").style.color = "black";
@@ -147,7 +151,11 @@ function displayTemperature(response) {
       document.getElementById("updated").style.color = "black";
     }
 
-    if (now.getHours() >= 6 && now.getHours() < 19 && currentValue <= 25) {
+    if (
+      now.getHours() >= 6 &&
+      now.getHours() < 19 &&
+      currentValueCelsius <= 25
+    ) {
       document.getElementById("current-card").style.backgroundImage =
         "url(src/images/landscapes.png)";
     }
