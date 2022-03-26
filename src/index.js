@@ -101,7 +101,7 @@ function formatMonth(timestamp) {
 function displayTemperature(response) {
   let currentTemp = document.querySelector("#current-temp");
   currentValueCelsius = Math.round(response.data.main.temp);
-  celsiusTemperature = Math.round(response.data.main.temp);
+  let celsiusTemperature = Math.round(response.data.main.temp);
   let cityText = document.querySelector("#city-name");
   let currentCity = response.data.name;
   let descriptor = document.querySelector("#weather-conditions");
@@ -132,11 +132,7 @@ function displayTemperature(response) {
         "url(src/images/night.png)";
     }
 
-    if (
-      now.getHours() >= 6 &&
-      now.getHours() < 19 &&
-      currentValueCelsius > 25
-    ) {
+    if (now.getHours() >= 6 && now.getHours() < 19 && celsiusTemperature > 25) {
       document.getElementById("current-card").style.backgroundImage =
         "url(src/images/beach.png)";
       document.getElementById("hours").style.color = "black";
@@ -152,7 +148,7 @@ function displayTemperature(response) {
     if (
       now.getHours() >= 6 &&
       now.getHours() < 19 &&
-      currentValueCelsius <= 25
+      celsiusTemperature <= 25
     ) {
       document.getElementById("current-card").style.backgroundImage =
         "url(src/images/landscapes.png)";
@@ -171,7 +167,7 @@ farenheitQuery.addEventListener("click", displayFarenheit);
 function displayCelsius(event) {
   event.preventDefault();
   let currentTempText = document.querySelector("#current-temp");
-  currentTempText.innerHTML = `${celsiusTemperature}°`;
+  currentTempText.innerHTML = `${currentValueCelsius}°`;
   farenheitQuery.classList.remove("active");
   celsiusQuery.classList.add("active");
 }
