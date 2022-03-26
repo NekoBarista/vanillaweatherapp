@@ -189,3 +189,18 @@ function displayFarenheit(event) {
   celsiusQuery.classList.remove("active");
   farenheitQuery.classList.add("active");
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = "";
+  let forecastDays = ["Sunday", "Monday", "Tuesday", "Wednesdsay", "Thursday"];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="weather-forecast"," id="weather-forecast"><span class ="forecast-date"> ${day} </span>
+		<div class="forecast-icon"> <img src= "https://ssl.gstatic.com/onebox/weather/48/rain_light.png" alt="rain symbol"> </div>
+			<div class="forecast-max"> 30° | <span class="forecast-min">18°</span> </div></div>`;
+    forecastElement.innerHTML = forecastHTML;
+  });
+}
+displayForecast();
