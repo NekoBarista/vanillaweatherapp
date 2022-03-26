@@ -194,15 +194,16 @@ function displayFarenheit(event) {
 
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecastDays = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = "";
-  let forecastDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
-  forecastDays.forEach(function (day) {
+
+  forecastDays.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
-      `<div class="weather-forecast"," id="weather-forecast"><span class ="forecast-date"> ${day} </span>
-		<div class="forecast-icon"> <img src= "https://ssl.gstatic.com/onebox/weather/48/rain_light.png" alt="rain symbol"> </div>
-			<div class="forecast-max"> 30° | <span class="forecast-min">18°</span> </div></div>`;
+      `<div class="weather-forecast"," id="weather-forecast"><span class ="forecast-date"> ${forecastDay.dt} </span>
+		<div class="forecast-icon"> <img src= "https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@4x.png" alt="rain symbol"> </div>
+			<div class="forecast-max"> ${forecastDay.temp.max}° | <span class="forecast-min"> ${forecastDay.temp.min}° </span> </div></div>`;
     forecastElement.innerHTML = forecastHTML;
   });
 }
