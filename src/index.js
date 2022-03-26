@@ -123,36 +123,41 @@ function displayTemperature(response) {
   );
   currentIcon.setAttribute("alt", `${weatherDescription}`);
   let now = new Date();
+
   if (now.getHours() >= 21 || now.getHours() < 6) {
     document.getElementById("current-card").style.backgroundImage =
       "url(src/images/camp-4363073_1280.png) ";
+  }
 
-    if (now.getHours() >= 19 && now.getHours() < 21) {
-      document.getElementById("current-card").style.backgroundImage =
-        "url(src/images/night.png)";
-    }
+  if (now.getHours() >= 19 && now.getHours() < 21) {
+    document.getElementById("current-card").style.backgroundImage =
+      "url(src/images/night.png)";
+  }
 
-    if (now.getHours() >= 6 && now.getHours() < 19 && celsiusTemperature > 25) {
-      document.getElementById("current-card").style.backgroundImage =
-        "url(src/images/beach.png)";
-      document.getElementById("hours").style.color = "black";
-      document.getElementById("city-name").style.color = "black";
-      document.getElementById("day").style.color = "black";
-      document.getElementById("currentdate").style.color = "black";
-      document.getElementById("current-temp").style.color = "black";
-      document.getElementById("units-celsius").style.color = "black";
-      document.getElementById("weather-conditions").style.color = "black";
-      document.getElementById("updated").style.color = "black";
-    }
+  if (
+    now.getHours() >= 6 &&
+    now.getHours() < 19 &&
+    response.data.main.temp > 25
+  ) {
+    document.getElementById("current-card").style.backgroundImage =
+      "url(src/images/beach2.png)";
+    document.getElementById("hours").style.color = "black";
+    document.getElementById("city-name").style.color = "black";
+    document.getElementById("day").style.color = "black";
+    document.getElementById("currentdate").style.color = "black";
+    document.getElementById("current-temp").style.color = "black";
+    document.getElementById("units-celsius").style.color = "black";
+    document.getElementById("weather-conditions").style.color = "black";
+    document.getElementById("updated").style.color = "black";
+  }
 
-    if (
-      now.getHours() >= 6 &&
-      now.getHours() < 19 &&
-      celsiusTemperature <= 25
-    ) {
-      document.getElementById("current-card").style.backgroundImage =
-        "url(src/images/landscapes.png)";
-    }
+  if (
+    now.getHours() >= 6 &&
+    now.getHours() < 19 &&
+    response.data.main.temp <= 25
+  ) {
+    document.getElementById("current-card").style.backgroundImage =
+      "url(src/images/landscapes.jpg)";
   }
 }
 
