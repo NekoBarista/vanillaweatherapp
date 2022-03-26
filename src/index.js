@@ -193,7 +193,6 @@ function displayFarenheit(event) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecastDays = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = "";
