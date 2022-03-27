@@ -198,7 +198,7 @@ function displayForecast(response) {
   let forecastHTML = "";
 
   forecastDays.forEach(function (forecastDay, index) {
-    if (index > 1 && index < 6) {
+    if (index < 4) {
       forecastHTML =
         forecastHTML +
         `<div class="weather-forecast"," id="weather-forecast"><span class ="forecast-date"> ${formatForecastDay(
